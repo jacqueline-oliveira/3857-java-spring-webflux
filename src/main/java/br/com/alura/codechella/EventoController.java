@@ -12,10 +12,10 @@ import reactor.core.publisher.Flux;
 public class EventoController {
 
     @Autowired
-    private EventoRepository repositorio;
+    private EventoService servico;
 
     @GetMapping(produces = MediaType.TEXT_EVENT_STREAM_VALUE)
-    public Flux<Evento> obterTodos() {
-        return repositorio.findAll();
+    public Flux<EventoDto> obterTodos() {
+        return servico.obterTodos();
     }
 }
